@@ -1,0 +1,58 @@
+﻿@model IEnumerable<auth_web.Models.escola>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Listagem   De Escolas</h1>
+
+<p>
+    <a class="btn btn-primary btn-icon-split" asp-action="Create">
+        <span class="icon text-white">
+            <i class="fas fa-plus-circle"></i>
+        </span>
+        <span class="text text-white">Adicionar</span>
+    </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.contato)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.telefone)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.contato)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.telefone)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
